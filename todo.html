@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+    #text {
+        padding: 4px;
+      }
+      button {
+        padding: 4px;
+        background: lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <input type="text" id="text"  placeholder="Enter a task">
+    <button onclick="AddTask()">ADD</button>
+    <ul id="taskList"></ul>
+    <script>
+      function AddTask() {
+        let txt = document.getElementById("text");
+        let task = txt.value;
+        let ul = document.getElementById("taskList");
+        let li = document.createElement("li");
+        li.textContent = task;
+        ul.appendChild(li);
+        txt.value = "";
+
+        let btn = document.createElement("button");
+        btn.textContent = "x";
+        btn.style.background = "lightcyan";
+        btn.style.padding = "4px";
+        li.appendChild(btn);
+        btn.addEventListener("click",function () {
+            li.remove(); 
+        });
+      }
+    </script>
+  </body>
+</html>
